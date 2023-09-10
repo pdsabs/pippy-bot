@@ -38,7 +38,7 @@ module.exports = {
 				//console.log(voter.nickname);
 				//console.log(voter.user.username);
 			});
-			//numVoters = targetMember.voice.channel.members.size;
+			numVoters = targetMember.voice.channel.members.size;
 			//console.log(`user is in ${voiceChannelId} with ${numVoters} voters`);
 		} else {
 			interaction.reply({
@@ -91,7 +91,7 @@ module.exports = {
 
 		collector.on('end', collected => {
 			if (y+n >= numVoters/2) {
-				if (y >= numVoters/2) {
+				if (y > numVoters/2) {
 					interaction.editReply({
 						content: `Vote passed! ${targetMember} will be muted for ${duration} minute.`
 					});
